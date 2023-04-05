@@ -18,15 +18,13 @@ function add(x, y) {
 
 // impure
 let x = 2;
-
-let y = 3;
+let y = 2;
 function add() {
   return x + y;
 }
 
 //totally impure //totally impure
 let x2 = 2;
-
 let y3 = 3;
 
 let answer3;

@@ -15,7 +15,7 @@
 // console.log(balance);
 
 //garbage collection - https://slides.com/jmsherry/functions#/0/42
-//CLOSURES ABSTRACT AS FUCK
+//CLOSURES ARE ABSTRACT AS FUCK
 
 function closure() {
   let balance = 0;
