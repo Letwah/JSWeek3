@@ -23,7 +23,7 @@ function add(value) {
 const optimisedVersionOfSquare = memorise(square);
 const optimisedVersionOfAdd = memorise(add);
 
-console.log((optimisedVersionOfSquare = memorise(square)));
+console.log(optimisedVersionOfSquare(square));
 
 //RUssells one
 function square(value) {
