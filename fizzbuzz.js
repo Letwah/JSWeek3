@@ -1,7 +1,7 @@
-// const str = "*";
-// for (let i = 0; i < 6; i++) {
-//   console.log("*".repeat(i));
-// } // expected outcome * ** *** **** ***** Kiearns way
+const str = "*";
+for (let i = 0; i < 6; i++) {
+  console.log("*".repeat(i));
+} // expected outcome * ** *** **** ***** Keiran's way
 
 // console.log(`*
 // **
