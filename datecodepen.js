@@ -1,6 +1,6 @@
-const dayjs = require("dayjs");
-//import dayjs from 'dayjs' // ES 2015
-dayjs().format();
+// const dayjs = require("dayjs");
+// //import dayjs from 'dayjs' // ES 2015
+// dayjs().format();
 
 /*****************************************************************
  *
@@ -125,27 +125,99 @@ console.log(dateDE); // 10.4.2023
 
 const now = new Date();
 
-// 👇️ With PM / AM
-const hoursAndMinutes = now.toLocaleTimeString("en-GB", {
+const hoursAndMinutesAndSeconds = now.toLocaleTimeString("en-GB", {
   hour: "2-digit",
   minute: "2-digit",
+  second: "2-digit",
 });
 
-console.log(hoursAndMinutes); // 👉️ 01:34 PM
+console.log(hoursAndMinutesAndSeconds); // 12:49:36
 
 // 11. Make a clock by starting with the current time and then every second adds a second to the date and prints it.
 
+function currentTime() {
+  let date = new Date();
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "AM";
+
+  if (hh == 0) {
+    hh = 12;
+  }
+  if (hh > 12) {
+    hh = hh - 12;
+    session = "PM";
+  }
+
+  hh = hh < 10 ? "0" + hh : hh;
+  mm = mm < 10 ? "0" + mm : mm;
+  ss = ss < 10 ? "0" + ss : ss;
+
+  let time = hh + ":" + mm + ":" + ss + " " + session;
+}
+currentTime();
+
 // 12. Create a copy of today
+
+var copiedDate = new Date(currentDate.getTime());
+
+console.log(copiedDate);
 
 // 13. Use the setter methods to find out what is 3years, 2months and 1 day from now
 
+// dayjs("2023-03-10").add(1, "day").add(2, "month").add(1, "day").toString();
+
 // 14. Get your timezone from today (remember it's in mins and the sign is inverted)
+// let woodbridgetime = new Date().toLocaleString("en-GB", {
+//   timeZone: "UK/GMT",
+// });
+
+// console.log(woodbridgetime);
+
+// console.log(woodbridgetime); ////??????????????????????????????
 
 // 15. Use the Intl module formatter (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format) to get the time in Sydney (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
+const ausDate = new Date();
+const formatOption = {
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+  timeZone: "Australia/Sydney",
+  timeZoneName: "short",
+};
+console.log(new Intl.DateTimeFormat("en-AU", formatOption).format(ausDate));
+
 // 16. Write a function that creates a years/months/days/hours/mins/secs/ms duration in ms.
 
+var dateMill = new Date("10/13/2000 12:00:00");
+var milliseconds = dateMill.getTime();
+
+console.log(milliseconds);
+
 // 17. Write a function that returns an object with the years/months/days/hours/mins/secs/ms between 2 dates
+
+var diff = Date.now() - Date.parse("June 10, 1981");
+var seconds = Math.floor(diff * 1000),
+  minutes = Math.floor(seconds / 60),
+  hours = Math.floor(minutes / 60),
+  days = Math.floor(hours / 24),
+  months = Math.floor(days / 30),
+  years = Math.floor(days / 365);
+
+seconds %= 60;
+minutes %= 60;
+hours %= 24;
+days %= 30;
+months %= 12;
+
+console.log("Years:", years);
+console.log("Months:", months);
+console.log("Days:", days);
+console.log("Hours:", hours);
+console.log("Minutes:", minutes);
+console.log("Seconds:", seconds);
 
 /*****************************************************************
  * For date-fns Exercises follow link on page
